@@ -26,7 +26,7 @@
     <textarea ng-model="todoList.sourcetxt" name="sourcetext" placeholder="add text to convert" style="width: 300px;height: 400px"> </textarea>
     <!--a ng-click="todoList.convert()"> Convert with Quotes </a-->
     <button class="btn" ng-click="todoList.convert()" ngclipboard data-clipboard-target="#convertedVal">
-        Double Click to Converty and Copy to clipboard
+        Double Click to Convert and Copy to clipboard
     </button>
     <textarea ng-model="todoList.targetBox" id="convertedVal" style="width: 300px;height: 400px;float: right">{{ todoList.targetBox }}</textarea>
 
