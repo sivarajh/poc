@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="todoApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+    <script src="http://localhost:63342/poc/dist/ngclipboard.min.js?_ijt=irc4ftiqrrp6f6g09qpstnig5j"></script>
+    <!--script src="lib/replaceQuotes.js"></script-->
+    <script>angular.module('todoApp', ['ngclipboard'])
+            .controller('TodoListController', function() {
+                var todoList = this;
+
+                todoList.convert = function() {
+                    var arr = todoList.sourcetxt.split("\n");
+                    arr = "\'"+ arr.join("','") + "\'";
+                    todoList.targetBox = String(arr);
+                }});
+    </script>
+    <link rel="stylesheet" href="lib/todo.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+
+
+</head>
+<body>
+<h2>Convert with Quotes</h2>
+<div ng-controller="TodoListController as todoList" style="width: 1000px;">
+    <textarea ng-model="todoList.sourcetxt" name="sourcetext" placeholder="add text to convert" style="width: 300px;height: 400px"> </textarea>
+    <!--a ng-click="todoList.convert()"> Convert with Quotes </a-->
+    <button class="btn" ng-click="todoList.convert()" ngclipboard data-clipboard-target="#convertedVal">
+        Double Click to Converty and Copy to clipboard
+    </button>
+    <textarea ng-model="todoList.targetBox" id="convertedVal" style="width: 300px;height: 400px;float: right">{{ todoList.targetBox }}</textarea>
+
+
+</div>
+</body>
+</html>
