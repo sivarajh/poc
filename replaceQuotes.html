@@ -23,12 +23,12 @@
 <body>
 <h2>Convert with Quotes</h2>
 <div ng-controller="TodoListController as todoList" style="width: 1000px;">
-    <textarea ng-model="todoList.sourcetxt" name="sourcetext" placeholder="add text to convert" style="width: 300px;height: 400px"> </textarea>
+    <textarea ng-model="todoList.sourcetxt" name="sourcetext" placeholder="add text to convert here" style="width: 300px;height: 400px"> </textarea>
     <!--a ng-click="todoList.convert()"> Convert with Quotes </a-->
     <button class="btn" ng-click="todoList.convert()" ngclipboard data-clipboard-target="#convertedVal">
         Double Click to Convert and Copy to clipboard
     </button>
-    <textarea ng-model="todoList.targetBox" id="convertedVal" style="width: 300px;height: 400px;float: right">{{ todoList.targetBox }}</textarea>
+    <textarea ng-model="todoList.targetBox" id="convertedVal"  placeholder="converted text will be displayed here" style="width: 300px;height: 400px;float: right" ng-show="todoList.targetBox !== ''">{{ todoList.targetBox }}</textarea>
 
 
 </div>
